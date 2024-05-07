@@ -46,6 +46,7 @@ class LaunchArguments(LaunchArgumentsBase):
     moveit: DeclareLaunchArgument = CommonArgs.moveit
     world_name: DeclareLaunchArgument = CommonArgs.world_name
     namespace: DeclareLaunchArgument = CommonArgs.namespace
+    tuck_arm: DeclareLaunchArgument = CommonArgs.tuck_arm
     is_public_sim: DeclareLaunchArgument = CommonArgs.is_public_sim
 
 
@@ -168,7 +169,8 @@ def declare_actions(
     tuck_arm = Node(package='tiago_gazebo',
                     executable='tuck_arm.py',
                     emulate_tty=True,
-                    output='both')
+                    output='both',
+                    condition=IfCondition(LaunchConfiguration('tuck_arm')))
 
     launch_description.add_action(tuck_arm)
 
