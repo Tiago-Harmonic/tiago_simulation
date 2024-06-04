@@ -66,7 +66,7 @@ Also you can add it to your .bashrc
 Launch gazebo simulation:
 
 ```console
-ros2 launch tiago_gazebo tiago_gazebo.launch.py is_public_sim:=true [arm:=no-arm]
+ros2 launch tiago_gazebo tiago_gazebo.launch.py is_public_sim:=true [arm_type:=no-arm]
 ```
 
 <img src="doc/media/tiago_gazebo.png" title="TIAGo simulation" width="85%">
@@ -74,7 +74,7 @@ ros2 launch tiago_gazebo tiago_gazebo.launch.py is_public_sim:=true [arm:=no-arm
 You can launch gazebo simulation using PAL office gazebo world by executing:
 
 ```console
-ros2 launch tiago_gazebo tiago_gazebo.launch.py is_public_sim:=true world_name:=pal_office [arm:=no-arm]
+ros2 launch tiago_gazebo tiago_gazebo.launch.py is_public_sim:=true world_name:=pal_office [arm_type:=no-arm]
 ```
 
 
@@ -108,7 +108,7 @@ Then, you can send a goal:
 You can also start the simulation and navigation together by using
 
 ```console
-ros2 launch tiago_gazebo tiago_gazebo.launch.py navigation:=true is_public_sim:=true [arm:=no-arm]
+ros2 launch tiago_gazebo tiago_gazebo.launch.py navigation:=true is_public_sim:=true [arm_type:=no-arm]
 ```
 
 Then, goals can be sent in the same way.
