@@ -2,8 +2,8 @@
 Changelog for package tiago_gazebo
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+4.1.6 (2024-06-06)
+------------------
 * Merge branch 'feat/motions' into 'humble-devel'
   change home values as the motion ones
   See merge request robots/tiago_simulation!153
