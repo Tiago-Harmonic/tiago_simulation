@@ -2,6 +2,30 @@
 Changelog for package tiago_gazebo
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge branch 'feat/motions' into 'humble-devel'
+  change home values as the motion ones
+  See merge request robots/tiago_simulation!153
+* change home values as the motion ones
+* fix launch file name for tiago_nav_bringup (#35)
+  * fix launch file name for tiago_nav_bringup
+  * undo formating changes
+  * undo formatting changes
+  * undo formatting changes
+  ---------
+  Co-authored-by: David Brown <david.brown@inria.fr>
+* Merge branch 'dtk/fix/add-public-sim-arg' into 'humble-devel'
+  Pass public sim arg to tiago_bringup launch
+  See merge request robots/tiago_simulation!150
+* Pass public sim arg to tiago_bringup launch
+* Add is_public_sim=true to tuck arm test to fix humble tests
+* Merge branch 'omm/feat/public_sim' into 'humble-devel'
+  Added is_public_sim check
+  See merge request robots/tiago_simulation!149
+* Added is_public_sim check
+* Contributors: Aina, David Brown, David ter Kuile, davidterkuile, oscarmartinez
+
 4.1.5 (2024-05-10)
 ------------------
 * Merge branch 'omm/fix/launch_standarization' into 'humble-devel'
