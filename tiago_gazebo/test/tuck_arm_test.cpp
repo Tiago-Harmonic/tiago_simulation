@@ -115,19 +115,19 @@ TEST(TuckArmTest, TuckArmTest)
   constexpr double TORSO_LIFT_JOINT_HOME_POS = 0.15;
   check_joint_position(joint_states, "torso_lift_joint", TORSO_LIFT_JOINT_HOME_POS);
 
-  constexpr double ARM_1_JOINT_HOME_POS = 0.20;
+  constexpr double ARM_1_JOINT_HOME_POS = 0.50;
   check_joint_position(joint_states, "arm_1_joint", ARM_1_JOINT_HOME_POS);
 
   constexpr double ARM_2_JOINT_HOME_POS = -1.34;
   check_joint_position(joint_states, "arm_2_joint", ARM_2_JOINT_HOME_POS);
 
-  constexpr double ARM_3_JOINT_HOME_POS = -0.20;
+  constexpr double ARM_3_JOINT_HOME_POS = -0.48;
   check_joint_position(joint_states, "arm_3_joint", ARM_3_JOINT_HOME_POS);
 
   constexpr double ARM_4_JOINT_HOME_POS = 1.94;
   check_joint_position(joint_states, "arm_4_joint", ARM_4_JOINT_HOME_POS);
 
-  constexpr double ARM_5_JOINT_HOME_POS = -1.57;
+  constexpr double ARM_5_JOINT_HOME_POS = -1.49;
   check_joint_position(joint_states, "arm_5_joint", ARM_5_JOINT_HOME_POS);
 
   constexpr double ARM_6_JOINT_HOME_POS = 1.37;
