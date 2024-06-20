@@ -22,9 +22,9 @@ from launch.substitutions import LaunchConfiguration
 from launch_pal.include_utils import include_scoped_launch_py_description
 from launch_pal.arg_utils import LaunchArgumentsBase
 from dataclasses import dataclass
-from launch_pal.arg_utils import CommonArgs
+from launch_pal.robot_arguments import CommonArgs
 from launch_ros.actions import Node
-from launch_pal.robot_arguments import TiagoArgs
+from tiago_description.launch_arguments import TiagoArgs
 from launch_pal.actions import CheckPublicSim
 
 
