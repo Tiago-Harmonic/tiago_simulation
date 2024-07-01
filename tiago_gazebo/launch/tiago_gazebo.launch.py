@@ -111,6 +111,9 @@ def declare_actions(
     advanced_navigation = include_scoped_launch_py_description(
         pkg_name='tiago_advanced_2dnav',
         paths=['launch', 'tiago_advanced_nav_bringup.launch.py'],
+        launch_arguments={
+            "base_type": launch_args.base_type,
+        },
         condition=IfCondition(LaunchConfiguration('advanced_navigation')))
 
     launch_description.add_action(advanced_navigation)
