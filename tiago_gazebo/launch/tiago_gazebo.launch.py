@@ -42,6 +42,7 @@ class LaunchArguments(LaunchArgumentsBase):
 
     navigation: DeclareLaunchArgument = CommonArgs.navigation
     advanced_navigation: DeclareLaunchArgument = CommonArgs.advanced_navigation
+    slam: DeclareLaunchArgument = CommonArgs.slam
     moveit: DeclareLaunchArgument = CommonArgs.moveit
     world_name: DeclareLaunchArgument = CommonArgs.world_name
     namespace: DeclareLaunchArgument = CommonArgs.namespace
@@ -103,6 +104,8 @@ def declare_actions(
             "laser":  launch_args.laser_model,
             "base_type": launch_args.base_type,
             "world_name": launch_args.world_name,
+            'slam': launch_args.slam,
+            'use_sim_time': LaunchConfiguration('use_sim_time'),
         },
         condition=IfCondition(LaunchConfiguration('navigation')))
 
