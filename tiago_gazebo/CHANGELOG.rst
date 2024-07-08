@@ -2,8 +2,8 @@
 Changelog for package tiago_gazebo
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+4.1.8 (2024-07-08)
+------------------
 * Merge branch 'fix/enable_slam' into 'humble-devel'
   Add slam argument for navigation
   See merge request robots/tiago_simulation!157
