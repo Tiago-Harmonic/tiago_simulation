@@ -2,6 +2,20 @@
 Changelog for package tiago_gazebo
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge branch 'fix/enable_slam' into 'humble-devel'
+  Add slam argument for navigation
+  See merge request robots/tiago_simulation!157
+* Add missing use_sim_time launch argument
+* Add slam argument for navigation
+* Merge branch 'abr/feat/advanced-navigation' into 'humble-devel'
+  added advanced navigation
+  See merge request robots/tiago_simulation!156
+* using base_type
+* added advanced navigation
+* Contributors: Noel Jimenez, antoniobrandi, davidterkuile
+
 4.1.7 (2024-06-26)
 ------------------
 * Merge branch 'dtk/move-robot-args' into 'humble-devel'
