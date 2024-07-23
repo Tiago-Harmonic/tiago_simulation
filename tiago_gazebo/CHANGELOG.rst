@@ -2,8 +2,8 @@
 Changelog for package tiago_gazebo
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+4.1.9 (2024-07-23)
+------------------
 * added tuck arm arg and condition
 * Contributors: sergiacosta
 
