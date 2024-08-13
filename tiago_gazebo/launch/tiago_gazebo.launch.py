@@ -81,13 +81,15 @@ def declare_actions(
 
     model_path = get_model_paths(packages)
 
-    gazebo_model_path_env_var = SetEnvironmentVariable(
-        'GAZEBO_MODEL_PATH', model_path)
+    gz_model_path_env_var = SetEnvironmentVariable(
+        'GZ_SIM_RESOURCE_PATH', model_path)
+    
+    launch_description.add_action(gz_model_path_env_var)
 
     gazebo = include_scoped_launch_py_description(
         pkg_name='pal_gazebo_worlds',
         paths=['launch', 'pal_gazebo.launch.py'],
-        env_vars=[gazebo_model_path_env_var],
+        env_vars=[gz_model_path_env_var],
         launch_arguments={
             "world_name":  launch_args.world_name,
             "model_paths": packages,
@@ -96,31 +98,31 @@ def declare_actions(
 
     launch_description.add_action(gazebo)
 
-    navigation = include_scoped_launch_py_description(
-        pkg_name='tiago_2dnav',
-        paths=['launch', 'tiago_nav_bringup.launch.py'],
-        launch_arguments={
-            "robot_name":  robot_name,
-            "is_public_sim": launch_args.is_public_sim,
-            "laser":  launch_args.laser_model,
-            "base_type": launch_args.base_type,
-            "world_name": launch_args.world_name,
-            'slam': launch_args.slam,
-            'use_sim_time': LaunchConfiguration('use_sim_time'),
-        },
-        condition=IfCondition(LaunchConfiguration('navigation')))
+    # navigation = include_scoped_launch_py_description(
+    #     pkg_name='tiago_2dnav',
+    #     paths=['launch', 'tiago_nav_bringup.launch.py'],
+    #     launch_arguments={
+    #         "robot_name":  robot_name,
+    #         "is_public_sim": launch_args.is_public_sim,
+    #         "laser":  launch_args.laser_model,
+    #         "base_type": launch_args.base_type,
+    #         "world_name": launch_args.world_name,
+    #         'slam': launch_args.slam,
+    #         'use_sim_time': LaunchConfiguration('use_sim_time'),
+    #     },
+    #     condition=IfCondition(LaunchConfiguration('navigation')))
 
-    launch_description.add_action(navigation)
+    # launch_description.add_action(navigation)
 
-    advanced_navigation = include_scoped_launch_py_description(
-        pkg_name='tiago_advanced_2dnav',
-        paths=['launch', 'tiago_advanced_nav_bringup.launch.py'],
-        launch_arguments={
-            "base_type": launch_args.base_type,
-        },
-        condition=IfCondition(LaunchConfiguration('advanced_navigation')))
+    # advanced_navigation = include_scoped_launch_py_description(
+    #     pkg_name='tiago_advanced_2dnav',
+    #     paths=['launch', 'tiago_advanced_nav_bringup.launch.py'],
+    #     launch_arguments={
+    #         "base_type": launch_args.base_type,
+    #     },
+    #     condition=IfCondition(LaunchConfiguration('advanced_navigation')))
 
-    launch_description.add_action(advanced_navigation)
+    # launch_description.add_action(advanced_navigation)
 
     move_group = include_scoped_launch_py_description(
         pkg_name='tiago_moveit_config',
@@ -136,10 +138,11 @@ def declare_actions(
         },
         condition=IfCondition(LaunchConfiguration('moveit')))
 
-    launch_description.add_action(move_group)
+    # launch_description.add_action(move_group)
 
     robot_spawn = include_scoped_launch_py_description(
         pkg_name='tiago_gazebo',
+        env_vars=[gz_model_path_env_var],
         paths=['launch', 'robot_spawn.launch.py'],
         launch_arguments={
             'robot_name': robot_name,
@@ -188,7 +191,7 @@ def get_model_paths(packages_names):
 
         model_paths += model_path
 
-    if 'GAZEBO_MODEL_PATH' in environ:
-        model_paths += pathsep + environ['GAZEBO_MODEL_PATH']
+    if 'GZ_SIM_RESOURCE_PATH' in environ:
+        model_paths += pathsep + environ['GZ_SIM_RESOURCE_PATH']
 
     return model_paths

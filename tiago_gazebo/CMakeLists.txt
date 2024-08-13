@@ -17,6 +17,7 @@ if(BUILD_TESTING)
   find_package(launch_testing_ament_cmake REQUIRED)
   find_package(play_motion2_msgs REQUIRED)
   find_package(sensor_msgs REQUIRED)
+  find_package(backward_ros REQUIRED)
 
   # tuck_arm_test
   ament_add_gtest_executable(tuck_arm_test
@@ -27,6 +28,7 @@ if(BUILD_TESTING)
     play_motion2_msgs
     rclcpp
     sensor_msgs
+    backward_ros
   )
 
   install(

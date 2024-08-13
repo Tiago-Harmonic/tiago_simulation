@@ -44,18 +44,19 @@ def generate_launch_description():
 def declare_actions(
     launch_description: LaunchDescription, launch_args: LaunchArguments
 ):
-
-    robot_entity = Node(
-        package="gazebo_ros",
-        executable="spawn_entity.py",
+    
+    gazebo_spawn_robot = Node(
+        package="ros_gz_sim",
+        executable="create",
+        output="screen",
         arguments=[
+            "-model",
+            LaunchConfiguration("robot_name"),
             "-topic",
             "robot_description",
-            "-entity",
-            LaunchConfiguration("robot_name"),
         ],
-        output="screen",
     )
-    launch_description.add_action(robot_entity)
+
+    launch_description.add_action(gazebo_spawn_robot)
 
     return
