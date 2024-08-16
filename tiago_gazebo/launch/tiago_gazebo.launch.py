@@ -87,8 +87,8 @@ def declare_actions(
     launch_description.add_action(gz_model_path_env_var)
 
     gazebo = include_scoped_launch_py_description(
-        pkg_name='pal_gazebo_worlds',
-        paths=['launch', 'pal_gazebo.launch.py'],
+        pkg_name='br2_gazebo_worlds',
+        paths=['launch', 'br2_gazebo.launch.py'],
         env_vars=[gz_model_path_env_var],
         launch_arguments={
             "world_name":  launch_args.world_name,
