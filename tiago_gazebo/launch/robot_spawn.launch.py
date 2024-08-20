@@ -12,6 +12,11 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+import os
+from pathlib import Path
+
+from ament_index_python.packages import get_package_share_directory
+
 from launch import LaunchDescription
 from launch.actions import DeclareLaunchArgument
 from launch.substitutions import LaunchConfiguration
@@ -44,7 +49,8 @@ def generate_launch_description():
 def declare_actions(
     launch_description: LaunchDescription, launch_args: LaunchArguments
 ):
-    
+    sim_dir = get_package_share_directory('tiago_bringup')
+
     gazebo_spawn_robot = Node(
         package="ros_gz_sim",
         executable="create",
@@ -58,5 +64,47 @@ def declare_actions(
     )
 
     launch_description.add_action(gazebo_spawn_robot)
+
+    bridge = Node(
+        package='ros_gz_bridge',
+        executable='parameter_bridge',
+        name='bridge_ros_gz',
+        parameters=[
+            {
+                'config_file': os.path.join(
+                    sim_dir, 'config/bridge', 'tiago_bridge.yaml'
+                ),
+                'use_sim_time': True,
+            }
+        ],
+        output='screen',
+    )
+
+    launch_description.add_action(bridge)
+
+    camera_bridge_image = Node(
+        package='ros_gz_image',
+        executable='image_bridge',
+        name='bridge_gz_ros_camera_image',
+        output='screen',
+        parameters=[{
+            'use_sim_time': True,
+        }],
+        arguments=['/rgbd_camera/image'])
+
+    launch_description.add_action(camera_bridge_image)
+
+    camera_bridge_depth = Node(
+        package='ros_gz_image',
+        executable='image_bridge',
+        name='bridge_gz_ros_camera_depth',
+        output='screen',
+        parameters=[{
+            'use_sim_time': True,
+        }],
+        arguments=['/rgbd_camera/depth_image'])
+
+    launch_description.add_action(camera_bridge_depth)
+
 
     return
