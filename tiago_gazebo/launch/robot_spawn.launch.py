@@ -106,5 +106,22 @@ def declare_actions(
 
     launch_description.add_action(camera_bridge_depth)
 
+    twist_stamper = Node(
+        package="twist_stamper",
+        executable="twist_stamper",
+        output="screen",
+        parameters = [
+            {
+                'frame_id': 'base_footprint',
+                'use_sim_time': True,
+            }
+        ],
+        remappings=[
+            ('cmd_vel_in', '/mobile_base_controller/cmd_vel_unstamped'),
+            ('cmd_vel_out', '/mobile_base_controller/cmd_vel')
+        ],
+    )
+
+    launch_description.add_action(twist_stamper)
 
     return
