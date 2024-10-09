@@ -12,6 +12,7 @@
   <url type="website">https://github.com/pal-robotics/tiago_simulation</url>
 
   <buildtool_depend>ament_cmake_auto</buildtool_depend>
+  <build_depend>twist_stamper</build_depend>
 
   <exec_depend>gz_plugins_vendor</exec_depend>
   <exec_depend>ros_gz_sim</exec_depend>
