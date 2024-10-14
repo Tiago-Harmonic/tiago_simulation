@@ -117,7 +117,7 @@ def declare_actions(
             }
         ],
         remappings=[
-            ('cmd_vel_in', '/mobile_base_controller/cmd_vel_unstamped'),
+            ('cmd_vel_in', '/cmd_vel_nav'),
             ('cmd_vel_out', '/mobile_base_controller/cmd_vel')
         ],
     )
