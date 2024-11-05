@@ -90,7 +90,7 @@ def declare_actions(
         parameters=[{
             'use_sim_time': True,
         }],
-        arguments=['/rgbd_camera/image'])
+        arguments=['/head_front_camera/image'])
 
     launch_description.add_action(camera_bridge_image)
 
@@ -102,7 +102,7 @@ def declare_actions(
         parameters=[{
             'use_sim_time': True,
         }],
-        arguments=['/rgbd_camera/depth_image'])
+        arguments=['/head_front_camera/depth_image'])
 
     launch_description.add_action(camera_bridge_depth)
 
@@ -117,7 +117,7 @@ def declare_actions(
             }
         ],
         remappings=[
-            ('cmd_vel_in', '/cmd_vel_nav'),
+            ('cmd_vel_in', '/cmd_vel'),
             ('cmd_vel_out', '/mobile_base_controller/cmd_vel')
         ],
     )
