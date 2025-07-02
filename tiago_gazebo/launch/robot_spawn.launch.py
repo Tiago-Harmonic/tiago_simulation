@@ -122,7 +122,7 @@ def declare_actions(
         ],
     )
 
-    twist_stamper2 = Node(
+    twist_stamper_nav = Node(
         package="twist_stamper",
         executable="twist_stamper",
         output="screen",
@@ -138,7 +138,24 @@ def declare_actions(
         ],
     )
 
+    twist_stamper_key = Node(
+        package="twist_stamper",
+        executable="twist_stamper",
+        output="screen",
+        parameters = [
+            {
+                'frame_id': 'base_footprint',
+                'use_sim_time': True,
+            }
+        ],
+        remappings=[
+            ('cmd_vel_in', '/key_vel'),
+            ('cmd_vel_out', '/mobile_base_controller/cmd_vel')
+        ],
+    )
+
     launch_description.add_action(twist_stamper)
-    launch_description.add_action(twist_stamper2)
+    launch_description.add_action(twist_stamper_nav)
+    launch_description.add_action(twist_stamper_key)
 
     return
